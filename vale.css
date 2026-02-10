@@ -1,0 +1,126 @@
+/* ===== Album Styles ===== */
+.album:hover .album-cover{
+    transform: rotateY(-120deg);
+}
+
+.album-inside{
+    position:absolute;
+    inset:0;
+    background:#111;
+    border-radius:18px;
+    padding:28px;
+    box-shadow:0 25px 70px rgba(0,0,0,0.7);
+    text-align:center;
+}
+
+/* Gallery grid */
+.gallery{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:16px;
+    margin-bottom:10px;
+}
+
+.photo-container{
+    position:relative;
+    border-radius:16px;
+    overflow:hidden;
+    background:#000;
+    padding:6px;
+    aspect-ratio: 1 / 1;
+}
+
+.photo-container img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    filter: grayscale(100%) contrast(125%);
+    transform: scale(0.92);
+    transition: transform .4s ease, filter .4s ease;
+}
+
+.photo-container:hover img{
+    transform: scale(1.12);
+    filter: grayscale(0%) contrast(110%);
+}
+
+.dots-overlay{
+    position:absolute;
+    inset:6px;
+    background-image: radial-gradient(#ffffff 1px, transparent 1px);
+    background-size:6px 6px;
+    mix-blend-mode: overlay;
+    opacity:0.45;
+    pointer-events:none;
+}
+
+.heart{
+    position:absolute;
+    top:8px;
+    right:10px;
+    font-size:22px;
+    animation: beat 1s infinite;
+}
+
+@keyframes beat{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.25);}
+}
+
+h2{
+    color:#ff4d6d;
+    margin-top:6px;
+}
+
+p{
+    color:#ccc;
+    font-size:14px;
+    margin-top:4px;
+}
+
+.album-cover h1{
+    font-size:40px;
+}
+
+.album-cover p{
+    margin-top:10px;
+    opacity:0.9;
+}
+
+/* ===== Music Player Styles ===== */
+.music-player {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #222;
+    border: 2px solid #ff4d6d;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    z-index: 1000;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.music-player:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 28px rgba(255,77,109,0.5);
+}
+
+.music-player button {
+    background: none;
+    border: none;
+    color: #ff4d6d;
+    font-size: 24px;
+    cursor: pointer;
+    animation: beat 1s infinite;
+}
+
+.music-player button:focus {
+    outline: none;
+}
